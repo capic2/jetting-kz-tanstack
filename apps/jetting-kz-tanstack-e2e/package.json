@@ -1,0 +1,10 @@
+{
+  "name": "@jetting-kz-tanstack/jetting-kz-tanstack-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@jetting-kz-tanstack/jetting-kz-tanstack"
+    ]
+  }
+}
