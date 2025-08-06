@@ -8,6 +8,16 @@
     },
     {
       "path": "./apps/jetting-kz-tanstack"
+    },
+    {
+      "path": "./design-system"
     }
-  ]
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node10",
+      "customConditions": null
+    }
+  }
 }
