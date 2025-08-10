@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 
@@ -25,7 +25,9 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <IntlProvider messages={fr} locale="fr">
-        <RouterProvider router={router} />
+        <Suspense fallback={<p>Loading...</p>}>
+          <RouterProvider router={router} />
+        </Suspense>
       </IntlProvider>
     </StrictMode>
   );

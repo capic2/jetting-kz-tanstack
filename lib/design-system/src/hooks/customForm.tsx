@@ -1,10 +1,12 @@
 import { createFormHook, createFormHookContexts } from '@tanstack/react-form';
 import { Button } from 'react-aria-components';
 import { lazy } from 'react';
+import { lazyWithGenerics } from '../utils/lazyWIthGenerics';
 
-const SelectField = lazy(async () => ({
+const SelectField = lazyWithGenerics(async () => ({
   default: (await import('../components/select-field/SelectField')).SelectField,
 }));
+
 const {
   fieldContext,
   formContext,

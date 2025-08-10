@@ -9,7 +9,7 @@ import { SelectOptionHelper } from '../select/parts/SelectOptionHelper';
 import { SelectField } from './SelectField';
 import { getTestingUtilsSelect } from './test-utils';
 import { Form } from '../form/Form';
-import { useForm } from '@tanstack/react-form';
+import { useCustomAppForm } from '../../hooks/customForm';
 
 interface SelectFieldStoriesContext extends StoryContext {
   parameters: {
@@ -37,7 +37,7 @@ const meta: Meta<typeof SelectField> = {
           test: z.string({ message: 'This field is required' }),
         });
 
-      const form = useForm({
+      const form = useCustomAppForm({
         defaultValues: context.parameters.value
           ? {
               test: context.parameters.value,
@@ -50,7 +50,7 @@ const meta: Meta<typeof SelectField> = {
 
       return (
         <Form schema={schema} onSubmit={fn()} className="uy-w-[25vmax]">
-          <form.Field name="test" children={(field) => <Story />} />
+          <form.AppField name="test" children={() => <Story />} />
         </Form>
       );
     },

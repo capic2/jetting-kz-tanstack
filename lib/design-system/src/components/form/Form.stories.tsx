@@ -51,16 +51,16 @@ export const FirstStory: Story = {
                   label="Engine"
                   name="engine"
                   items={[
-                    { id: 'k9', value: 'k9' },
-                    { id: 'k9b', value: 'k9b' },
-                    { id: 'k9c', value: 'k9c' },
-                    { id: 'k10', value: 'k10' },
-                    { id: 'k10b', value: 'k10b' },
-                    { id: 'k10c', value: 'k10c' },
-                    { id: 'r1', value: 'r1' },
+                    { id: 'k9', name: 'k9' },
+                    { id: 'k9b', name: 'k9b' },
+                    { id: 'k9c', name: 'k9c' },
+                    { id: 'k10', name: 'k10' },
+                    { id: 'k10b', name: 'k10b' },
+                    { id: 'k10c', name: 'k10c' },
+                    { id: 'r1', name: 'r1' },
                   ]}
                 >
-                  {(item) => <SelectOption>{item.value}</SelectOption>}
+                  {(item) => <SelectOption id={item.id}>{item.name}</SelectOption>}
                 </field.SelectField>
               )}
             />
