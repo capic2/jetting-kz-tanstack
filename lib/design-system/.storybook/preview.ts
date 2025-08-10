@@ -1,8 +1,8 @@
-import { initialize, mswLoader } from 'msw-storybook-addon'
-import '../src/styles.css'
+import { initialize, mswLoader } from 'msw-storybook-addon';
+import '../src/styles.css';
 
 // Initialize MSW
-initialize()
+initialize();
 
 const preview = {
   parameters: {
@@ -10,6 +10,6 @@ const preview = {
   },
   // Provide the MSW addon loader globally
   loaders: [mswLoader],
-}
+};
 
-export default preview
+export default preview;

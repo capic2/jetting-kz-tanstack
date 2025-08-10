@@ -1,7 +1,10 @@
 import { createFormHook, createFormHookContexts } from '@tanstack/react-form';
-import { TextField } from '../components/TextField/TextField';
 import { Button } from 'react-aria-components';
+import { lazy } from 'react';
 
+const SelectField = lazy(async () => ({
+  default: (await import('../components/select-field/SelectField')).SelectField,
+}));
 const {
   fieldContext,
   formContext,
@@ -19,12 +22,12 @@ const SubscribeButton = ({ label }: { label: string }) => {
 };
 
 const {
-  useAppForm: useCustomForm,
+  useAppForm: useCustomAppForm,
   withForm: withCustomForm,
   withFieldGroup: withCustomFieldGroup,
 } = createFormHook({
   fieldComponents: {
-    TextField,
+    SelectField,
   },
   formComponents: {
     SubscribeButton,
@@ -34,7 +37,7 @@ const {
 });
 
 export {
-  useCustomForm,
+  useCustomAppForm,
   withCustomForm,
   withCustomFieldGroup,
   useCustomFieldContext,

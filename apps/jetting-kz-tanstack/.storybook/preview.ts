@@ -1,5 +1,5 @@
 import { initialize, mswLoader } from 'msw-storybook-addon'
-
+import '../src/styles.css'
 // Initialize MSW
 initialize()
 

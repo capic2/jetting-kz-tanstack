@@ -2,6 +2,7 @@
   "name": "@jetting-kz-tanstack/jetting-kz-tanstack",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "msw": {
     "workerDirectory": [
       "public"

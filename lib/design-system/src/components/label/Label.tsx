@@ -1,29 +1,29 @@
-import { forwardRef } from 'react'
+import { forwardRef } from 'react';
 
-import type { LabelProps as AriaLabelProps } from 'react-aria-components'
+import type { LabelProps as AriaLabelProps } from 'react-aria-components';
 
-import { mergeProps } from 'react-aria'
+import { mergeProps } from 'react-aria';
 import {
   Label as AriaLabel,
   InputContext,
   useSlottedContext,
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from 'react-aria-components';
+import { tv } from 'tailwind-variants';
 
 export interface LabelProps extends AriaLabelProps {
   /**
    * Whether the field is required.
    */
-  isRequired?: boolean
+  isRequired?: boolean;
   /**
    * The variant of the required label.
    */
-  requiredVariant?: 'required' | 'optional'
+  requiredVariant?: 'required' | 'optional';
 }
 
 const label = tv({
   slots: {
-    base: 'typography-body-strong text-content-form-enabled flex gap-25',
+    base: 'typography-body-strong text-content-form-enabled flex gap-1',
     asterisk: 'text-content-danger',
     optionalTag: 'typography-body',
   },
@@ -40,7 +40,7 @@ const label = tv({
   defaultVariants: {
     variant: 'strong',
   },
-})
+});
 
 /**
  * FormLabel is a component that displays a label for a form field.
@@ -48,17 +48,17 @@ const label = tv({
  */
 const Label = forwardRef<HTMLLabelElement, LabelProps>(
   ({ children, ...userProps }, ref) => {
-    const inputContext = useSlottedContext(InputContext)
+    const inputContext = useSlottedContext(InputContext);
     const finalProps = mergeProps(
       { isRequired: inputContext?.['aria-required'] },
-      userProps,
-    )
+      userProps
+    );
     const {
       isRequired = false,
       requiredVariant = 'required',
       ...labelProps
-    } = finalProps
-    const { base, asterisk, optionalTag } = label()
+    } = finalProps;
+    const { base, asterisk, optionalTag } = label();
 
     return (
       <AriaLabel
@@ -78,10 +78,10 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(
           </span>
         )}
       </AriaLabel>
-    )
-  },
-)
+    );
+  }
+);
 
-Label.displayName = 'Label'
+Label.displayName = 'Label';
 
-export { Label }
+export { Label };

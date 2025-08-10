@@ -14,8 +14,11 @@ const FormFeedbackText = forwardRef<
   PropsWithChildren<unknown>
 >(({ children, ...props }, ref) => {
   const field = useCustomFieldContext<string>();
-  const errors: ZodError[] = useStore(field.store, (state) => state.meta.errors);
-  console.log({errors})
+  const errors: ZodError[] = useStore(
+    field.store,
+    (state) => state.meta.errors
+  );
+
   const body =
     errors.length > 0 ? (
       <ul>

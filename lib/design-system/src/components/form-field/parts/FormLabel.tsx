@@ -2,6 +2,9 @@ import { forwardRef } from 'react';
 
 import type { LabelProps } from '../../label/Label';
 import { Label } from '../../label/Label';
+import { useCustomFieldContext } from '../../../hooks/customForm';
+import { isFieldRequired } from '../utils/isFieldRequired';
+import { useForm } from '../../form/form.context';
 
 export type FormLabelProps = Omit<LabelProps, 'isRequired'>;
 
@@ -11,24 +14,28 @@ export type FormLabelProps = Omit<LabelProps, 'isRequired'>;
  */
 const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
   ({ children, ...props }, ref) => {
-    const { requiredVariant } = props
+    const { requiredVariant } = props;
+    const field = useCustomFieldContext<string>();
+    const { schema } = useForm();
+
+    const isRequired = isFieldRequired(schema, field.name);
 
     return (
       <Label
         ref={ref}
         //id={formLabelId}
-        //isRequired={isRequired}
+        isRequired={isRequired}
         requiredVariant={requiredVariant}
         //htmlFor={formItemId}
-        className="leading-100"
+        className="leading-2"
         {...props}
       >
         {children}
       </Label>
-    )
-  },
-)
+    );
+  }
+);
 
-FormLabel.displayName = 'Label'
+FormLabel.displayName = 'Label';
 
-export { FormLabel }
+export { FormLabel };

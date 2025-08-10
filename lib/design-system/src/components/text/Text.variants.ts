@@ -1,4 +1,4 @@
-import { tv } from 'tailwind-variants'
+import { tv } from 'tailwind-variants';
 
 export const text = tv({
   base: '',
@@ -41,15 +41,12 @@ export const text = tv({
       'content.neutral.disabled': 'text-content-neutral-disabled',
       'content.neutral.low': 'text-content-neutral-low',
       'content.neutral.lowest': 'text-content-neutral-lowest',
-      'content.neutral.lowest.enabled':
-        'text-content-neutral-lowest-enabled',
+      'content.neutral.lowest.enabled': 'text-content-neutral-lowest-enabled',
       'content.neutral.lowest.hover': 'text-content-neutral-lowest-hover',
-      'content.neutral.lowest.pressed':
-        'text-content-neutral-lowest-pressed',
+      'content.neutral.lowest.pressed': 'text-content-neutral-lowest-pressed',
       'content.neutral.lowest.focus': 'text-content-neutral-lowest-focus',
       'content.neutral.lowest.active': 'text-content-neutral-lowest-active',
-      'content.neutral.lowest.disabled':
-        'text-content-neutral-lowest-disabled',
+      'content.neutral.lowest.disabled': 'text-content-neutral-lowest-disabled',
       'content.danger': 'text-content-danger',
       'content.danger.enabled': 'text-content-danger-enabled',
       'content.danger.hover': 'text-content-danger-hover',
@@ -106,4 +103,4 @@ export const text = tv({
     variant: 'body',
     isTruncated: false,
   },
-})
+});

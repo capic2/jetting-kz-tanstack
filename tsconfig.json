@@ -10,7 +10,7 @@
       "path": "./apps/jetting-kz-tanstack"
     },
     {
-      "path": "./design-system"
+      "path": "./lib/design-system"
     }
   ],
   "ts-node": {
