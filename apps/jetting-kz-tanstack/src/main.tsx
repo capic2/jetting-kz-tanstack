@@ -6,6 +6,8 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
 import { IntlProvider } from 'react-intl';
 import fr from '../i18n/fr-FR.json';
+import { FetchClientProvider } from '@jetting-kz-tanstack/http-client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -25,9 +27,13 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <IntlProvider messages={fr} locale="fr">
-        <Suspense fallback={<p>Loading...</p>}>
-          <RouterProvider router={router} />
-        </Suspense>
+        <QueryClientProvider client={new QueryClient()}>
+          <FetchClientProvider apiURL="">
+            <Suspense fallback={<p>Loading...</p>}>
+              <RouterProvider router={router} />
+            </Suspense>
+          </FetchClientProvider>
+        </QueryClientProvider>
       </IntlProvider>
     </StrictMode>
   );

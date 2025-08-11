@@ -11,6 +11,9 @@
     },
     {
       "path": "./lib/design-system"
+    },
+    {
+      "path": "./lib/http-client"
     }
   ],
   "ts-node": {

@@ -3,6 +3,12 @@
   "include": [],
   "references": [
     {
+      "path": "../../lib/http-client"
+    },
+    {
+      "path": "../../lib/design-system"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {
