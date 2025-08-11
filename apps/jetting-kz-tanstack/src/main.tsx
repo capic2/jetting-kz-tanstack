@@ -19,6 +19,8 @@ declare module '@tanstack/react-router' {
   }
 }
 
+const apiURL = 'http://localhost:3000'
+
 // Render the app
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const rootElement = document.getElementById('root')!;
@@ -28,7 +30,7 @@ if (!rootElement.innerHTML) {
     <StrictMode>
       <IntlProvider messages={fr} locale="fr">
         <QueryClientProvider client={new QueryClient()}>
-          <FetchClientProvider apiURL="">
+          <FetchClientProvider apiURL={apiURL}>
             <Suspense fallback={<p>Loading...</p>}>
               <RouterProvider router={router} />
             </Suspense>

@@ -14,6 +14,9 @@
     },
     {
       "path": "./lib/http-client"
+    },
+    {
+      "path": "./apps/jetting-kz-server"
     }
   ],
   "ts-node": {

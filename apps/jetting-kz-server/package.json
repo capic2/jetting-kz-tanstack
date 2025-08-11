@@ -1,0 +1,66 @@
+{
+  "name": "@jetting-kz-tanstack/jetting-kz-server",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/esbuild:esbuild",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "platform": "node",
+          "outputPath": "apps/jetting-kz-server/dist",
+          "format": [
+            "cjs"
+          ],
+          "bundle": false,
+          "main": "apps/jetting-kz-server/src/main.ts",
+          "tsConfig": "apps/jetting-kz-server/tsconfig.app.json",
+          "assets": [
+            "apps/jetting-kz-server/src/assets"
+          ],
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "configurations": {
+          "development": {},
+          "production": {
+            "esbuildOptions": {
+              "sourcemap": false,
+              "outExtension": {
+                ".js": ".js"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@jetting-kz-tanstack/jetting-kz-server:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@jetting-kz-tanstack/jetting-kz-server:build:development"
+          },
+          "production": {
+            "buildTarget": "@jetting-kz-tanstack/jetting-kz-server:build:production"
+          }
+        }
+      }
+    }
+  }
+}
