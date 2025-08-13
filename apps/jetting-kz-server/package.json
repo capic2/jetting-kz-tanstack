@@ -2,6 +2,7 @@
   "name": "@jetting-kz-tanstack/jetting-kz-server",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "nx": {
     "targets": {
       "build": {
@@ -62,5 +63,12 @@
         }
       }
     }
+  },
+  "devDependencies": {
+    "prisma": "^6.13.0"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@prisma/client": "6.13.0"
   }
 }
