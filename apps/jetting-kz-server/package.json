@@ -14,9 +14,6 @@
         "options": {
           "platform": "node",
           "outputPath": "apps/jetting-kz-server/dist",
-          "format": [
-            "cjs"
-          ],
           "bundle": false,
           "main": "apps/jetting-kz-server/src/main.ts",
           "tsConfig": "apps/jetting-kz-server/tsconfig.app.json",
@@ -63,12 +60,5 @@
         }
       }
     }
-  },
-  "devDependencies": {
-    "prisma": "^6.13.0"
-  },
-  "dependencies": {
-    "@fastify/cors": "^11.1.0",
-    "@prisma/client": "6.13.0"
   }
 }

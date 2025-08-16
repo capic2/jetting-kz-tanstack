@@ -1,13 +1,13 @@
 import { FastifyInstance } from 'fastify';
-import { prisma } from '../../utils/db';
-import { Prisma } from '../../generated/prisma';
+
+import { PrismaClient } from '@prisma/client'
+import { withAccelerate } from '@prisma/extension-accelerate'
+import { SettingsModel } from '../../generated/prisma/models/Settings';
+
+const prisma = new PrismaClient().$extends(withAccelerate())
 
 export default async function (fastify: FastifyInstance) {
-  fastify.register(require('@fastify/leveldb'), { name: 'db' });
-
-  fastify.post<{ Body: Prisma.SettingsCreateInput }>(
-    '/settings',
-    async function (req) {
+  fastify.post<{ Body: SettingsModel }>('/settings', async function (req) {
       return prisma.settings.upsert({
         where: {
           engineType: req.body.engineType,
